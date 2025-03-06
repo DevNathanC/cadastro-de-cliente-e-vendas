@@ -1,7 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
-import './CadastroClients.css';
+import './ModalClientRegister.css'
 import { SubmitHandler, useForm } from 'react-hook-form';
+
 
 Modal.setAppElement('#root');
 
@@ -24,8 +25,9 @@ const customStyles = {
     },
 };
 
-const CadastroClient: React.FC = () => {
 
+export const ModalClientRegister: React.FC = () => {
+    
     const { register, handleSubmit, formState: { errors }, } = useForm<IFormInputs>();
     const [clientes, setClientes] = React.useState<{ name: string; telefone: number; email: string; endereco: string; }[]>([]);
     const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -44,9 +46,7 @@ const CadastroClient: React.FC = () => {
 
     return (
         <>
-            <button
-                onClick={openModal}
-            >Cadastrar Novo Cliente</button>
+                <button className='btnOpenCadastrarClient' onClick={openModal}>Cadastrar Novo Cliente</button>
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
@@ -88,7 +88,5 @@ const CadastroClient: React.FC = () => {
                 </ul>
             </div>
         </>
-    );
-};
-
-export { CadastroClient };
+    )
+}

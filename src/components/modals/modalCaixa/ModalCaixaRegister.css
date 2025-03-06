@@ -1,0 +1,32 @@
+
+.cashInItens{
+    margin: 0;
+    color: white;
+    border-right: 3px dotted rgb(0, 77, 0);
+    padding: 5px;
+}
+
+.cashOutItens{
+    margin: 0;
+    color: white;
+    border-right: 3px dotted rgb(77, 0, 0);
+    padding: 5px;
+}
+
+.btnOpenEntrieRegister{
+    background-color: darkgreen;
+}
+
+.btnOpenCashOutRegister{
+    background-color: darkred;
+}
+
+.cashOutList{
+    background-color: darkred;
+    justify-content: center;
+}
+
+.entrieList{
+    background-color: darkgreen;
+    justify-content: center;
+}

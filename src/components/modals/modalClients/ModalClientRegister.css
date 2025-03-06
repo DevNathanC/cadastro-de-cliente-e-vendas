@@ -1,0 +1,80 @@
+
+.menuBar {
+    height: 100vh;
+    background-color: #2e2e2e;
+    padding: 10px;
+}
+
+.btnOpenCadastrarClient {
+    height: 50px;
+    font-size: 15px;
+    background-color: #1a1a1a;
+}
+
+label {
+    color: #fff;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    margin-top: 10px;
+}
+
+ul {
+    gap: 50px;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    background-color: azure;
+    color: #000;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+
+p {
+    margin: 10px;
+}
+
+.closeModal {
+    background-color: red;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.inputError {
+    border-color: red;
+    border: 10px;
+}
+
+.errorRequired {
+    margin: 0;
+    color: darkred;
+}
+
+.containerCaixa {
+    padding: 20px;
+    width: 100%;
+}
+
+.containerCaixa button {
+    margin: 10px;
+}
+
+.buttonEntrada {
+    background-color: darkgreen;
+}
+
+.buttonSaida {
+    background-color: darkred;
+}

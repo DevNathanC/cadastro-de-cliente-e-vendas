@@ -1,10 +1,12 @@
 import './App.css'
-import { CadastroClient } from './components/cadastroClients/CadastroClients'
+import { Home } from './components/home/Home'
+
+
 
 function App() {
   return (
     <>
-      <CadastroClient />
+      <Home/>
     </>
   )
 }
