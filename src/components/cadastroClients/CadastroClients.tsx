@@ -7,7 +7,7 @@ Modal.setAppElement('#root');
 
 interface IFormInputs {
     name: string,
-    telefone: string,
+    telefone: number,
     email: string,
     endereco: string
 }
@@ -27,38 +27,12 @@ const customStyles = {
 const CadastroClient: React.FC = () => {
 
     const { register, handleSubmit, formState: { errors }, } = useForm<IFormInputs>();
-
-
-    const [formData, setFormData] = React.useState({
-        name: '',
-        telefone: '',
-        email: '',
-        endereco: ''
-    });
-
-    const onSubmit: SubmitHandler<IFormInputs> = (data) => {
-        setFormData({
-            name: data.name,
-            telefone: data.telefone,
-            email: data.email,
-            endereco: data.endereco
-        })
-    };
-
-    // const [clientes, setClientes] = React.useState<{ name: string; telefone: string; email: string; endereco: string; }[]>([]);
+    const [clientes, setClientes] = React.useState<{ name: string; telefone: number; email: string; endereco: string; }[]>([]);
     const [modalIsOpen, setIsOpen] = React.useState(false);
 
-    // function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    //     event.preventDefault();
-    //     setClientes(prevClientes => [...prevClientes, formData]);
-    //     setFormData({
-    //         name: '',
-    //         telefone: '',
-    //         email: '',
-    //         endereco: ''
-    //     });
-    // }
-
+    const onSubmit: SubmitHandler<IFormInputs> = (data) => {
+        setClientes(prevClientes => [...prevClientes, data]);
+    };
 
     function openModal() {
         setIsOpen(true);
@@ -67,15 +41,6 @@ const CadastroClient: React.FC = () => {
     function closeModal() {
         setIsOpen(false);
     }
-
-    // function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    //     const { name, value } = event.target;
-    //     setFormData(prevFormData => ({
-    //         ...prevFormData,
-    //         [name]: value
-    //     }));
-    // }
-
 
     return (
         <>
@@ -97,7 +62,7 @@ const CadastroClient: React.FC = () => {
                     {errors.name && <p className='errorRequired'>*Nome obrigatório*</p>}
 
                     <label>Telefone:</label>
-                    <input type='tel' {...register('telefone', { required: true })} placeholder='(DDD) 9 1234-5678' />
+                    <input type='number' {...register('telefone', { required: true })} placeholder='(DDD) 9 1234-5678' />
                     {errors.telefone && <p className='errorRequired'>*Telefone obrigatório*</p>}
 
 
@@ -112,16 +77,14 @@ const CadastroClient: React.FC = () => {
             </Modal>
             <div>
                 <ul>
-                    {/* {clientes.map((cliente, index) => ( */}
-                    <li
-                    // key={index}
-                    >
-                        <p>Nome: {formData.name}</p>
-                        <p>Telefone: {formData.telefone}</p>
-                        <p>Email: {formData.email || " Email não definido ☹❌"}</p>
-                        <p>Endereço:{formData.endereco || "Endereço não definido ☹❌"}</p>
-                    </li>
-                    {/* ))} */}
+                    {clientes.map((cliente, index) => (
+                        <li key={index}>
+                            <p>Nome: {cliente.name}</p>
+                            <p>Telefone: {cliente.telefone}</p>
+                            <p>Email: {cliente.email || " Email não cadastrado ☹❌"}</p>
+                            <p>Endereço:{cliente.endereco || "Endereço não cadastrado ☹❌"}</p>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </>
