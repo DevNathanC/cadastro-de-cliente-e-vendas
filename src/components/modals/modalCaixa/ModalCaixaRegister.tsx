@@ -22,7 +22,7 @@ const customStyles = {
         bottom: 'auto',
         marginRight: '-50%',
         transform: 'translate(-50%, -50%)',
-        backgroundColor: '#242424'
+        backgroundColor: '#242424',
     },
 };
 
@@ -61,7 +61,7 @@ export const ModalCaixaRegister: React.FC = () => {
 
     return (
         <>
-            <div className="menuBar">
+            <div className="containerCaixa">
                 <button className='btnOpenEntrieRegister' onClick={openModal}>Entrada</button>
                 <button className='btnOpenCashOutRegister' onClick={openModalCashOut}>Saida</button>
 
@@ -71,7 +71,7 @@ export const ModalCaixaRegister: React.FC = () => {
                     style={customStyles}
                     contentLabel='Example Modal'
                 >
-                    <button className='closeModal' onClick={closeModal}>X</button>
+                    <svg onClick={closeModal} className='closeModal' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                     <h2>Cadastrando nova Entrada✅</h2>
                     <form onSubmit={handleSubmit(onSubmit)}>
 
@@ -94,7 +94,7 @@ export const ModalCaixaRegister: React.FC = () => {
 
                         <label>Forma de pagamento:</label>
                         <input type='text' {...register('paymontMethod', { required: true })} placeholder='Pix, dinheiro,cartão de crédito' />
-                        {errors.paymontMethod && <p className='errorRequired'>*Nome do cliente obrigatório*</p>}
+                        {errors.paymontMethod && <p className='errorRequired'>*Forma de pagamente obrigatório*</p>}
 
                         <button type='submit'>Cadastrar</button>
                     </form>
@@ -105,8 +105,9 @@ export const ModalCaixaRegister: React.FC = () => {
                     onRequestClose={closeModalCashOut}
                     style={customStyles}
                     contentLabel='Example Modal'
+        
                 >
-                    <button className='closeModal' onClick={closeModalCashOut}>X</button>
+                    <svg onClick={closeModalCashOut} className='closeModal' xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
                     <h2>Cadastrando nova Saida❌</h2>
                     <form onSubmit={handleSubmit(onSubmitCashOut)}>
 
@@ -129,13 +130,14 @@ export const ModalCaixaRegister: React.FC = () => {
 
                         <label>Forma de pagamento:</label>
                         <input type='text' {...register('paymontMethod', { required: true })} placeholder='Pix, dinheiro,cartão de crédito' />
-                        {errors.paymontMethod && <p className='errorRequired'>*Nome do cliente obrigatório*</p>}
+                        {errors.paymontMethod && <p className='errorRequired'>*Forma de pagamento obrigatório*</p>}
 
                         <button type='submit'>Cadastrar</button>
                     </form>
                 </Modal>
                 <div>
-                    <ul>Entradas
+                    <h2>Entradas</h2>
+                    <ul>
                         {entries.map((entrie, index) => (
                             <li className='entrieList' key={index}>
                                 <p className='cashInItens'>Data: {entrie.date}</p>
@@ -146,12 +148,13 @@ export const ModalCaixaRegister: React.FC = () => {
                             </li>
                         ))}
                     </ul>
-                    <ul>Saídas
+                    <h2>Saidas</h2>
+                    <ul>
                         {cashOuts.map((cashOut, index) => (
                             <li className='cashOutList' key={index}>
                                 <p className='cashOutItens'>Data: {cashOut.date}</p>
                                 <p className='cashOutItens'>Cliente: {cashOut.nameClient}</p>
-                                <p className='cashOutItens'>Serviço: {cashOut.service}</p>
+                                <p className='cashOutItens'>Despesa: {cashOut.service}</p>
                                 <p className='cashOutItens'>Preço: R${cashOut.price}</p>
                                 <p className='cashOutItens'>Forma de pagamento: {cashOut.paymontMethod}</p>
                             </li>

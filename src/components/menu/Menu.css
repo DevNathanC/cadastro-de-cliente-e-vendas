@@ -1,0 +1,9 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    margin-top: 10px;
+    font-size: 12px;
+}

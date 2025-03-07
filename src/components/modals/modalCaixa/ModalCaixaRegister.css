@@ -1,9 +1,43 @@
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center  ;
+}
+
+.entrieList{
+    display: flex;
+    margin: 10px;
+    width: 750px;
+    border-radius: 5px;
+}
+
+.cashOutList{
+    display: flex;
+    margin: 10px;
+    width: 750px;
+    border-radius: 5px;
+}
 
 .cashInItens{
     margin: 0;
     color: white;
     border-right: 3px dotted rgb(0, 77, 0);
     padding: 5px;
+}
+
+.menuBar{
+    width: 10%;
+}
+
+.containerCaixa{
+    width: 100%;
 }
 
 .cashOutItens{
@@ -15,6 +49,7 @@
 
 .btnOpenEntrieRegister{
     background-color: darkgreen;
+    margin-right: 10px;
 }
 
 .btnOpenCashOutRegister{
@@ -29,4 +64,8 @@
 .entrieList{
     background-color: darkgreen;
     justify-content: center;
+}
+
+.closeModal{
+    cursor: pointer;
 }
